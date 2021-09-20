@@ -11,7 +11,7 @@ import {
 } from "./actions";
 
 const initialState = {
-  product: [],
+  products: [],
   cart: [],
   cartOpen: false,
   categories: [],
