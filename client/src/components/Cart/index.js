@@ -5,7 +5,6 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-import { useStoreContext } from '../../utils/GlobalState';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
@@ -13,10 +12,9 @@ import './style.css';
 const stripePromise = loadStripe('-u sk_test_51Ja7CwJrl673dwz4RPxnPTKIKBo1My0zsWZdfe6gGA5vmmXjfpSWnePRucwKQjK70CZzmbFAURt4iS0Kk9gjTZHk00gZBr3Ntm');
 
 const Cart = () => {
-  const [state, dispatch] = useStoreContext();
   const state = useSelector(state => state);
   const dispatch = useDispatch();
-  
+
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
